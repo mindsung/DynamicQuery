@@ -50,14 +50,14 @@ namespace MindSung.DynamicQuery
 
     private static int dynamicTypeId = 0;
     private static ConcurrentDictionary<string, Type> dynamicTypes = new ConcurrentDictionary<string, Type>();
-    private static ModuleBuilder dynamicModuleBuilder = AssemblyBuilder.DefineDynamicAssembly(new AssemblyName("_trilithic_dynamic"), AssemblyBuilderAccess.Run)
-      .DefineDynamicModule("_trilithic_dynamic");
+    private static ModuleBuilder dynamicModuleBuilder = AssemblyBuilder.DefineDynamicAssembly(new AssemblyName("_dynamic"), AssemblyBuilderAccess.Run)
+      .DefineDynamicModule("_dynamic");
 
     public static Type GetDynamicType((string name, Type type) [] props, bool createSubPropTypes = false)
     {
       return dynamicTypes.GetOrAdd(string.Join("+", props.OrderBy(p => p.name).Select(p => p.name + "=" + p.type)), _ =>
       {
-        TypeBuilder tb = dynamicModuleBuilder.DefineType($"_trilithic_dynamic.t_{Interlocked.Increment(ref dynamicTypeId)}", TypeAttributes.Public);
+        TypeBuilder tb = dynamicModuleBuilder.DefineType($"_dynamic.t_{Interlocked.Increment(ref dynamicTypeId)}", TypeAttributes.Public);
         var grouped = props.GroupBy(p => p.name.Split(new [] { '.' }, 2) [0]).Select(g => new { name = g.Key, subs = g.ToList() }).ToList();
         foreach (var p in grouped)
         {
