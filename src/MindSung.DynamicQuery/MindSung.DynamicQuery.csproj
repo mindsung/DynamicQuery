@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <VersionPrefix>0.1.0</VersionPrefix>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>MindSung.DynamicQuery</AssemblyName>
+    <PackageId>MindSung.DynamicQuery</PackageId>
+    <Authors>Robb Eads, Michael Obermeyer, Jason Russell</Authors>
+    <Description>MindSung.DynamicQuery Library</Description>
+    <RepositoryUrl>https://github.com/mindsung/DynamicQuery</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Reflection.Emit" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>
