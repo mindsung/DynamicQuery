@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <VersionPrefix>0.1.0</VersionPrefix>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>MindSung.DynamicQuery.Providers.MongoDB</AssemblyName>
+    <PackageId>MindSung.DynamicQuery.Providers.MongoDB</PackageId>
+    <Authors>Robb Eads</Authors>
+    <Description>MindSung.DynamicQuery.Providers.MongoDB Library</Description>
+    <RepositoryUrl>https://github.com/mindsung/DynamicQuery</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MindSung.DynamicQuery\MindSung.DynamicQuery.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.7.0" />
+  </ItemGroup>
+
+</Project>
