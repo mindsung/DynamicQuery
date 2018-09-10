@@ -49,10 +49,10 @@ namespace MindSung.DynamicQuery
         .Invoke(null, new object[] { typeExpr, new [] { lambdaParam } });
 
       // return source.GroupBy<T, object>(lambda);
-      return DynamicGroupSelect<T>(InvokeGroupBy(source, lambda, groupKeyType), groupKeyType, query.GroupBy.Union(query.Select ?? new string[] { }).ToArray(), typeof(Queryable));
+      return GroupSelect<T>(InvokeGroupBy(source, lambda, groupKeyType), groupKeyType, query.GroupBy.Union(query.Select ?? new string[] { }).ToArray(), typeof(Queryable));
     }
 
-    private IQueryable<object> DynamicGroupSelect<T>(object source, Type keyType, string[] selectProps, Type queryableExtensionsType)
+    private IQueryable<object> GroupSelect<T>(object source, Type keyType, string[] selectProps, Type queryableExtensionsType)
     {
       // g
       var groupingType = typeof(IGrouping<,>).MakeGenericType(new [] { keyType, typeof(T) });
