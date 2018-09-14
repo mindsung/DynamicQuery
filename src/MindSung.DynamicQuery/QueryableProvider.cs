@@ -7,8 +7,6 @@ namespace MindSung.DynamicQuery
 {
   public partial class QueryableProvider
   {
-    public static readonly QueryableProvider QueryableDefaultProvider = new QueryableProvider();
-
     public IQueryable<object> Query<T>(IQueryable<T> source, string queryString)
     {
       var query = ParseQueryString(queryString ?? "");
